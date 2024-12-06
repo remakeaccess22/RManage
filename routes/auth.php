@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     
     Route::get('/applicants', [ApplicantsController::class, 'index'])->name('applicants');
-    Route::post('applicant/accepted/{id}', [ApplicantsController::class, 'acceptedApplicant'])->name('acceptedApplicant');
-    Route::post('applicant/declined/{id}', [ApplicantsController::class, 'declinedApplicant'])->name('declinedApplicant');
-
+    Route::post('applicant/approve/{id}', [ApplicantsController::class, 'approveApplicant'])->name('approveApplicant');
+    Route::post('applicant/remove/{id}', [ApplicantsController::class, 'removeApplicant'])->name('removeApplicant');
+    
 });
